@@ -1,6 +1,6 @@
 #!/bin/sh
 # What ?
-# Very simple script to solve classic chicken-egg bootstrapping of a git repo used in a CI build job, called from the build job, wih
+# Very simple script to solve classic chicken-egg bootstrapping of a git repo used in a CI build job, called from the build job.
 #
 # Why ?
 # Keep build logic in git. Easily ensure latest build logic somewhere in build space with just two lines of code.
