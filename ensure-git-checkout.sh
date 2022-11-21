@@ -48,6 +48,7 @@ then
     git reset --hard
     git clean -fx
     git pull
+    git fetch --tags -all -f
 else
     echo "${CHECKOUT_PATH} not found, cloning new ..."
     git clone $REPO_URL $CHECKOUT_PATH
