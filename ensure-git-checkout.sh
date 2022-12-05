@@ -13,6 +13,7 @@ set -e
 
 REPO_URL=""
 CHECKOUT_PATH=""
+BRANCH=""
 
 while [ -n "$1" ]; do 
     case "$1" in
@@ -20,6 +21,8 @@ while [ -n "$1" ]; do
         REPO_URL="$2" shift;;
     -p|--path)
         CHECKOUT_PATH="$2" shift;;            
+    -b|--branch)
+        BRANCH="$2" shift;;                    
     esac 
     shift
 done
@@ -52,4 +55,8 @@ then
 else
     echo "${CHECKOUT_PATH} not found, cloning new ..."
     git clone $REPO_URL $CHECKOUT_PATH
+fi
+
+if [ ! -z $BRANCH ]; then
+   git switch $BRANCH
 fi
