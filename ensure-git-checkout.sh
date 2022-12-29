@@ -48,6 +48,11 @@ if [ -d "${CHECKOUT_PATH}" ]
 then
     echo "Get latest version of ${CHECKOUT_PATH}..." 
     cd $CHECKOUT_PATH
+    
+    if [ ! -z $BRANCH ]; then
+       git switch $BRANCH
+    fi
+    
     git reset --hard
     git clean -fx
     git pull
@@ -55,8 +60,8 @@ then
 else
     echo "${CHECKOUT_PATH} not found, cloning new ..."
     git clone $REPO_URL $CHECKOUT_PATH
-fi
-
-if [ ! -z $BRANCH ]; then
-   git switch $BRANCH
+    
+    if [ ! -z $BRANCH ]; then
+        git switch $BRANCH
+    fi
 fi
